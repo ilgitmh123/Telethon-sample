@@ -4,13 +4,13 @@ emoji_list = ["❤️", "🔥", "👍", "😎", "🎉", "💯"]
 # 😆 Emoji cho chuyện cười (dành cho sticker)
 funny_emoji_list = ["😁","🤣","🤪", "👀"]
 
-def react_to_recent_messages(client, log_file):
+def react_and_seen_to_recent_messages(client, log_file):
     for group in TARGET_GROUPS:
         try:
             entity = await client.get_entity(group)
             history = await client(GetHistoryRequest(
                 peer=entity,
-                limit=1,  # Chỉ lấy tin nhắn gần nhất
+                limit=1, #Số tin nhắn gần nhất
                 offset_date=None,
                 offset_id=0,
                 max_id=0,
